@@ -1,24 +1,5 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""
-=============================================================================
- Programa: Modo Stealth Ping (ICMP)
- Archivo:  02modostealth.py
- Autor:    Generado con IA Generativa (Antigravity / Google DeepMind)
- Fecha:    2026-03-20
-=============================================================================
-
- RÚBRICA - Criterios "Stealth":
-   [6 pts] texto IA Generativa: Programa generado.
-   [4 pts] inyecta cifrado a tráfico: Se inyecta un carácter por paquete.
-   [4 pts] mantiene timestamp: tv_sec inicial es siempre real y coherente (8 bytes).
-   [4 pts] mantiene identification coherente: ID = process id en todos los ICMP.
-   [4 pts] mantiene seq number coherente: Secuencia autoincremental realista.
-   [4 pts] mantiene id coherente: ID a nivel de IP e ICMP coherente.
-   [4 pts] mantiene payload ICMP (8 primeros bytes): 8 bytes válidos correspondientes a tv_sec en little-endian.
-   [4 pts] mantiene payload ICMP (desde 0x10 a 0x37): Relleno de data idéntico al de la herramienta 'ping'.
-=============================================================================
-"""
 
 import sys
 import os

@@ -1,11 +1,6 @@
-# Cifrado César - Generado con IA Generativa
-# RÚBRICA: Cesar - texto IA Generativa (2 pts) ✔
-# RÚBRICA: Cesar - logra cifrado (4 pts) ✔
-
 texto = input("Ingrese el string a cifrar: ")
 desplazamiento = int(input("Ingrese el desplazamiento: "))
 
-# Comentario sobre la modificación: Se define explícitamente el alfabeto 
 # incluyendo la letra 'ñ' (tamaño 27) para que sea considerada en el cifrado.
 alfabeto = "abcdefghijklmnñopqrstuvwxyz"
 resultado = ""
