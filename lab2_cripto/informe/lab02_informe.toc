@@ -1,0 +1,25 @@
+\babel@toc {spanish}{}\relax 
+\contentsline {section}{\numberline {1}Descripción de actividades}{2}{section.1}%
+\contentsline {section}{\numberline {2}Desarrollo de actividades según criterio de rúbrica}{3}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Levantamiento de docker para correr DVWA (dvwa)}{3}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Redirección de puertos en docker (dvwa)}{5}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Obtención de consulta a replicar (burp)}{6}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Identificación de campos a modificar (burp)}{7}{subsection.2.4}%
+\contentsline {subsection}{\numberline {2.5}Obtenci\'{o}n de diccionarios para el ataque (burp)}{7}{subsection.2.5}%
+\contentsline {subsection}{\numberline {2.6}Obtenci\'{o}n de al menos 2 pares (burp)}{8}{subsection.2.6}%
+\contentsline {subsection}{\numberline {2.7}Obtención de código de inspect element (curl)}{11}{subsection.2.7}%
+\contentsline {subsection}{\numberline {2.8}Utilización de curl por terminal (curl)}{12}{subsection.2.8}%
+\contentsline {subsection}{\numberline {2.9}Demuestra 4 diferencias (curl)}{14}{subsection.2.9}%
+\contentsline {subsection}{\numberline {2.10}Instalaci\'{o}n y versi\'{o}n a utilizar (hydra)}{15}{subsection.2.10}%
+\contentsline {subsection}{\numberline {2.11}Explicación de comando a utilizar (hydra)}{16}{subsection.2.11}%
+\contentsline {subsection}{\numberline {2.12}Obtenci\'{o}n de al menos 2 pares (hydra)}{17}{subsection.2.12}%
+\contentsline {subsection}{\numberline {2.13}Explicación paquete curl (tráfico)}{18}{subsection.2.13}%
+\contentsline {subsection}{\numberline {2.14}Explicación paquete burp (tráfico)}{18}{subsection.2.14}%
+\contentsline {subsection}{\numberline {2.15}Explicación paquete hydra (tráfico)}{18}{subsection.2.15}%
+\contentsline {subsection}{\numberline {2.16}Mención de las diferencias (tráfico)}{18}{subsection.2.16}%
+\contentsline {subsection}{\numberline {2.17}Detección de SW (tráfico)}{18}{subsection.2.17}%
+\contentsline {subsection}{\numberline {2.18}Interacción con el formulario (python)}{18}{subsection.2.18}%
+\contentsline {subsection}{\numberline {2.19}Cabeceras HTTP (python)}{19}{subsection.2.19}%
+\contentsline {subsection}{\numberline {2.20}Obtención de al menos 2 pares (python)}{20}{subsection.2.20}%
+\contentsline {subsection}{\numberline {2.21}Comparación de rendimiento con Hydra, Burpsuite, y cURL (python)}{21}{subsection.2.21}%
+\contentsline {subsection}{\numberline {2.22}Demuestra 4 métodos de mitigación (investigación)}{23}{subsection.2.22}%

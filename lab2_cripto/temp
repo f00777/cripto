@@ -1,0 +1,5 @@
+Saltemos inmediatemente al punto 2.18. Interaccion con el formulario (python)
+
+i. Se generó un script en python para realizar ataques de fuerza bruta sobre el formulario de vulnerabilities/brute, a este scritpt se le pasan como variables dentro del codigo la url del formulario, el archivo de diccionario de usuarios y contraseñas, y finalmente se le pasa manualmente una session_id que ya esté autenticada con anterioridad (mostrar figura @beautifulMention)
+
+ii. la forma en la que funciona este script es que itera sobre todas las combinaciones de pares de usuario, contraseña y se pasan estos parametros como una request get  junto con las cookies y headers necesarios para realizar una petición valiida a la aplicación (mostrar figura @beautifulMention)

@@ -1,0 +1,4 @@
+https://github.com/danielmiessler/SecLists/blob/master/Usernames/cirt-default-usernames.txt
+
+
+https://github.com/danielmiessler/SecLists/blob/master/Passwords/Most-Popular-Letter-Passes.txt

@@ -1,0 +1,15 @@
+=== REPORTE DE ATAQUE FUERZA BRUTA ===
+Iteraciones totales realizadas: 241
+Tiempo total de ejecución: 1.57 segundos
+----------------------------------------
+CABECERAS HTTP UTILIZADAS EN EL ATAQUE:
+  User-Agent: python-requests/2.32.3
+  Accept-Encoding: gzip, deflate
+  Accept: */*
+  Connection: keep-alive
+----------------------------------------
+PARES VÁLIDOS ENCONTRADOS:
+Usuario: gordonb | Password: abc123
+Usuario: pablo | Password: letmein
+Usuario: 1337 | Password: charley
+Usuario: smithy | Password: password

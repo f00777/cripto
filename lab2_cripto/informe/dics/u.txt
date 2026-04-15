@@ -1,0 +1,14 @@
+super
+root
+sys
+www
+username
+superuser
+1
+sysadmin
+gordonb
+pablo
+test
+smith
+1337
+smithy

@@ -1,0 +1,88 @@
+========================================================
+4 DIFERENCIAS ENTRE RESPUESTA VÁLIDA E INVÁLIDA (cURL)
+========================================================
+Archivos comparados:
+  - res_invalido  (username=fel, password=mat)
+  - res_valido    (username=pablo, password=letmein)
+
+--------------------------------------------------------
+DIFERENCIA 1 — Content-Length del encabezado HTTP
+--------------------------------------------------------
+Ubicación: encabezado HTTP, línea "Content-Length"
+
+  INVÁLIDO (res_invalido, línea 25):
+    Content-Length: 1504
+
+  VÁLIDO (res_valido, línea 26):
+    Content-Length: 1527
+
+La respuesta exitosa es 23 bytes más grande porque contiene
+el mensaje de bienvenida y una etiqueta <img> adicional.
+
+Para la captura: busca "Content-Length" justo después del
+bloque de encabezados HTTP (después de "HTTP/1.1 200 OK").
+
+--------------------------------------------------------
+DIFERENCIA 2 — Mensaje de resultado tras el formulario
+--------------------------------------------------------
+Ubicación: cuerpo HTML, dentro de <div class="vulnerable_code_area">,
+           inmediatamente después del cierre </form>
+
+  INVÁLIDO (res_invalido, línea 117):
+    <pre><br />Username and/or password incorrect.</pre>
+
+  VÁLIDO (res_valido, línea 118):
+    <p>Welcome to the password protected area pablo</p><img src="/hackable/users/pablo.jpg" />
+
+El elemento HTML que contiene el resultado cambia completamente:
+  - Inválido usa <pre> con el mensaje de error.
+  - Válido usa <p> con el mensaje de bienvenida personalizado.
+
+Para la captura: busca el texto justo después de </form>
+en el cuerpo HTML de cada respuesta.
+
+--------------------------------------------------------
+DIFERENCIA 3 — Etiqueta HTML del contenedor del mensaje
+--------------------------------------------------------
+Ubicación: misma sección que Diferencia 2 (dentro de vulnerable_code_area)
+
+  INVÁLIDO: el mensaje viene envuelto en <pre>...</pre>
+  VÁLIDO:   el mensaje viene envuelto en <p>...</p>
+
+La aplicación usa distintas etiquetas HTML según el resultado:
+<pre> para errores (texto preformateado), <p> para éxito (párrafo).
+Esto permite detectar el resultado sin leer el texto, solo
+inspeccionando el tag HTML del contenedor.
+
+Para la captura: misma zona que Diferencia 2, observar el tag
+de apertura del elemento que sigue a </form>.
+
+--------------------------------------------------------
+DIFERENCIA 4 — Presencia de etiqueta <img> con foto de usuario
+--------------------------------------------------------
+Ubicación: cuerpo HTML, línea 118 del res_valido
+
+  INVÁLIDO: NO existe ninguna etiqueta <img> dentro de
+            <div class="vulnerable_code_area">
+
+  VÁLIDO (res_valido, línea 118):
+    <img src="/hackable/users/pablo.jpg" />
+
+En la respuesta exitosa, la aplicación incluye una imagen
+con la foto del usuario autenticado. Esta etiqueta no existe
+en absoluto en la respuesta fallida.
+
+Para la captura: en res_valido busca "pablo.jpg"; en
+res_invalido verificar que no hay ningún <img> dentro
+de vulnerable_code_area.
+
+========================================================
+RESUMEN RÁPIDO
+========================================================
+#  | Ubicación                        | Inválido              | Válido
+---|----------------------------------|-----------------------|---------------------------
+1  | Header: Content-Length           | 1504                  | 1527
+2  | Body: texto dentro del área      | "Username and/or..."  | "Welcome to the..."
+3  | Body: tag HTML del mensaje       | <pre>                 | <p>
+4  | Body: etiqueta <img> de usuario  | No existe             | <img src="pablo.jpg"/>
+========================================================

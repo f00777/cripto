@@ -1,0 +1,14 @@
+=== REPORTE DE ATAQUE FUERZA BRUTA (cURL) ===
+Iteraciones totales realizadas: 280
+Tiempo total de ejecución: 5.868 segundos
+----------------------------------------
+CABECERAS HTTP UTILIZADAS EN EL ATAQUE:
+  User-Agent: curl/8.5.0
+  Accept: */*
+  Cookie: security=low; PHPSESSID=e85e601283e3b30636487e6d4c5613e9
+----------------------------------------
+PARES VÁLIDOS ENCONTRADOS:
+  Usuario: gordonb | Password: abc123
+  Usuario: pablo | Password: letmein
+  Usuario: 1337 | Password: charley
+  Usuario: smithy | Password: password
