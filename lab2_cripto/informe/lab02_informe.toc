@@ -13,13 +13,13 @@
 \contentsline {subsection}{\numberline {2.10}Instalaci\'{o}n y versi\'{o}n a utilizar (hydra)}{15}{subsection.2.10}%
 \contentsline {subsection}{\numberline {2.11}Explicación de comando a utilizar (hydra)}{16}{subsection.2.11}%
 \contentsline {subsection}{\numberline {2.12}Obtenci\'{o}n de al menos 2 pares (hydra)}{17}{subsection.2.12}%
-\contentsline {subsection}{\numberline {2.13}Explicación paquete curl (tráfico)}{18}{subsection.2.13}%
+\contentsline {subsection}{\numberline {2.13}Explicación paquete curl (tráfico)}{17}{subsection.2.13}%
 \contentsline {subsection}{\numberline {2.14}Explicación paquete burp (tráfico)}{18}{subsection.2.14}%
-\contentsline {subsection}{\numberline {2.15}Explicación paquete hydra (tráfico)}{18}{subsection.2.15}%
-\contentsline {subsection}{\numberline {2.16}Mención de las diferencias (tráfico)}{18}{subsection.2.16}%
-\contentsline {subsection}{\numberline {2.17}Detección de SW (tráfico)}{18}{subsection.2.17}%
-\contentsline {subsection}{\numberline {2.18}Interacción con el formulario (python)}{18}{subsection.2.18}%
-\contentsline {subsection}{\numberline {2.19}Cabeceras HTTP (python)}{19}{subsection.2.19}%
-\contentsline {subsection}{\numberline {2.20}Obtención de al menos 2 pares (python)}{20}{subsection.2.20}%
-\contentsline {subsection}{\numberline {2.21}Comparación de rendimiento con Hydra, Burpsuite, y cURL (python)}{21}{subsection.2.21}%
-\contentsline {subsection}{\numberline {2.22}Demuestra 4 métodos de mitigación (investigación)}{23}{subsection.2.22}%
+\contentsline {subsection}{\numberline {2.15}Explicación paquete hydra (tráfico)}{19}{subsection.2.15}%
+\contentsline {subsection}{\numberline {2.16}Mención de las diferencias (tráfico)}{20}{subsection.2.16}%
+\contentsline {subsection}{\numberline {2.17}Detección de SW (tráfico)}{20}{subsection.2.17}%
+\contentsline {subsection}{\numberline {2.18}Interacción con el formulario (python)}{20}{subsection.2.18}%
+\contentsline {subsection}{\numberline {2.19}Cabeceras HTTP (python)}{21}{subsection.2.19}%
+\contentsline {subsection}{\numberline {2.20}Obtención de al menos 2 pares (python)}{22}{subsection.2.20}%
+\contentsline {subsection}{\numberline {2.21}Comparación de rendimiento con Hydra, Burpsuite, y cURL (python)}{23}{subsection.2.21}%
+\contentsline {subsection}{\numberline {2.22}Demuestra 4 métodos de mitigación (investigación)}{25}{subsection.2.22}%

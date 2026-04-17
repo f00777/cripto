@@ -438,13 +438,99 @@ Durante la ejecución de la herramienta, se mostraron en la consola los intentos
 
 \subsection{Explicación paquete curl (tráfico)}
 
+Para ver el tráfico de cURL en Wireshark, se abrió el archivo \texttt{curl1.pcapng}.
+
+\textbf{Pasos:}
+\begin{enumerate}
+    \item Aplicar el filtro \texttt{http.request.method == "GET"}.
+    \item Seleccionar un paquete y ver los detalles de \textbf{Hypertext Transfer Protocol}.
+    \item El campo \textbf{User-Agent} dice \texttt{curl/8.5.0}.
+    \item La cabecera \textbf{Accept: */*} es estándar en cURL.
+\end{enumerate}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth]{img/13-1-curlpacks.png}
+    \caption{Lista de paquetes generados por cURL en Wireshark.}
+    \label{fig:wiresharkCurlPacks}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth]{img/13-2-curldet.png}
+    \caption{Detalle del User-Agent de cURL en Wireshark.}
+    \label{fig:wiresharkCurlDet}
+\end{figure}
+
 \subsection{Explicación paquete burp (tráfico)}
+
+Para ver el tráfico de Burp Suite, se abrió el archivo \texttt{burp.pcapng}.
+
+\textbf{Pasos:}
+\begin{enumerate}
+    \item Aplicar el filtro \texttt{http.request.method == "GET"}.
+    \item El encabezado \textbf{User-Agent} dice exactamente \texttt{Mozilla/5.0 (X11; Linux x86\_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36}, copiando a un navegador normal y sin mencionar a Burp.
+    \item Hay mucho tiempo de espera entre cada paquete debido al límite de la versión Community de Burp.
+\end{enumerate}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth]{img/14-1-burppacks.png}
+    \caption{Lista de paquetes generados por Burp Suite con retardo de tiempo.}
+    \label{fig:wiresharkBurpPacks}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth]{img/14-2-burpdet.png}
+    \caption{Detalle de las cabeceras HTTP que copian a un navegador.}
+    \label{fig:wiresharkBurpDet}
+\end{figure}
 
 \subsection{Explicación paquete hydra (tráfico)}
 
+Para ver el tráfico de Hydra, se abrió el archivo \texttt{hydra.pcapng}.
+
+\textbf{Pasos:}
+\begin{enumerate}
+    \item Aplicar el filtro \texttt{http.request.method == "GET"}.
+    \item El encabezado \textbf{User-Agent} dice exactamente \texttt{Mozilla/5.0 (Hydra)}.
+    \item La lista de paquetes muestra muchos envíos al mismo tiempo (mucha concurrencia).
+\end{enumerate}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth]{img/15-1-hydrapacks.png}
+    \caption{Lista de paquetes masivos enviados en paralelo por Hydra.}
+    \label{fig:wiresharkHydraPacks}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth]{img/15-2-curldet.png}
+    \caption{Detalle de las cabeceras HTTP usadas por Hydra.}
+    \label{fig:wiresharkHydraDet}
+\end{figure}
+
 \subsection{Mención de las diferencias (tráfico)}
 
+Las diferencias principales entre los 3 ataques son:
+
+\begin{itemize}
+    \item \textbf{User-Agent:} cURL dice \texttt{curl/8.5.0}. Hydra dice qué es, o manda poca información. Burp Suite copia todo el User-Agent del navegador.
+    \item \textbf{Cantidad de cabeceras:} cURL e Hydra mandan lo mínimo necesario. Burp Suite manda todas las cabeceras del navegador interceptado.
+    \item \textbf{Tiempo entre paquetes:} Hydra envía en paralelo sin esperar. cURL envía rápido de forma secuencial. Burp Suite espera intencionalmente entre cada paquete.
+\end{itemize}
+
 \subsection{Detección de SW (tráfico)}
+
+Para detectar cuál programa se usó analizando la red:
+
+\begin{itemize}
+    \item \textbf{Por cabecera directa:} Leer el campo User-Agent. cURL se delata al decir \texttt{curl/8.5.0}. Hydra utiliza \texttt{Mozilla/5.0 (Hydra)}. Por su parte, Burp Suite copia un navegador real como \texttt{Mozilla/5.0 (X11; Linux x86\_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36}.
+    \item \textbf{Por patrón de peticiones:} En Burp Suite, se envían muchos paquetes copiando a un navegador, pero solo solicitan repetidamente el inicio de sesión sin pedir imágenes ni otros archivos, lo cual no es normal para un humano.
+    \item \textbf{Por el tiempo de envío:} Si hay ráfagas de paquetes muy rápidas, se usa una herramienta concurrente como Hydra. Si el tiempo es exacto entre peticiones, es el retardo de Burp o un script con pausa.
+\end{itemize}
 
 \subsection{Interacción con el formulario (python)}
 
@@ -534,9 +620,22 @@ Para obtener valores representativos, cada herramienta fue ejecutada en múltipl
 \newpage
 \subsection{Demuestra 4 métodos de mitigación (investigación)}
 
-% Please add the following required packages to your document preamble:
-%\begin{table}[htbp]
+El bloqueo de cuenta temporal inhabilita el acceso de un usuario después de un número específico de intentos fallidos de inicio de sesión. Esto es útil en este caso porque detiene directamente los ataques automáticos de herramientas como Hydra o scripts de Python, ya que al fallar las primeras contraseñas del diccionario, la cuenta se bloquea y los intentos restantes son rechazados de inmediato por el servidor. (\url{https://owasp.org/www-community/controls/Blocking_Brute_Force_Attacks})\\
+
+
+
+La implementación de un CAPTCHA exige que el usuario resuelva un desafío visual o de lógica antes de enviar el formulario de autenticación. Para el escenario evaluado, este método impide que herramientas automatizadas como cURL o Burp Suite puedan procesar peticiones masivas, ya que estos programas no tienen la capacidad de resolver el desafío humano en cada intento de acceso. (\url{https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-63-3.pdf})\\
+
+
+
+La autenticación multifactor requiere que el usuario proporcione un segundo medio de verificación, como un código enviado a un teléfono celular, además de la contraseña. En el contexto de este ataque, incluso si el script de fuerza bruta logra adivinar la clave correcta dentro del diccionario, el acceso será denegado porque el atacante no posee el dispositivo físico necesario para confirmar el inicio de sesión. (\url{https://www.cisa.gov/stopransomware/multi-factor-authentication-mfa})\\
+
+
+
+El uso de políticas de contraseñas robustas obliga a los usuarios a crear claves largas y complejas que combinen letras, números y símbolos. Esto mitiga eficazmente el ataque realizado, debido a que los diccionarios comunes de tamaño reducido, como los extraídos de SecLists, no contienen este tipo de combinaciones complejas, haciendo que adivinar la contraseña requiera un tiempo computacionalmente inviable para el atacante. (\url{https://www.ncsc.gov.uk/collection/passwords/updating-your-approach})
 
 \section*{Conclusiones y comentarios}
+
+El desarrollo de este laboratorio demostró que es factible vulnerar un inicio de sesión mediante fuerza bruta si la aplicación no implementa medidas de mitigación adecuadas y no exige a sus usuarios la creación de contraseñas con alta entropía. Durante el proceso, se comprendieron las funcionalidades y diferencias clave de cada herramienta evaluada, donde el valor de Burp Suite radica en su entorno gráfico y usabilidad (UX/UI), Hydra destaca por poseer una interfaz de línea de comandos enfocada al cien por ciento en la ejecución de ataques de fuerza bruta, cURL resalta por su capacidad de emular cualquier petición HTTP tal como lo haría un navegador web, y el uso de un script propio en Python permite construir la lógica desde cero, otorgando un control total y mayor optimización sobre cómo se busca vulnerar la contraseña. Finalmente, el análisis de red comprobó que estas herramientas dejan marcas identificables en los paquetes de datos. Por lo tanto, para el ámbito de la auditoría en ciberseguridad, es un hecho innegable que todo atacante deja huellas rastreables tras cada acción que realiza.
 
 \end{document}
