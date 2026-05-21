@@ -1,0 +1,10 @@
+\babel@toc {spanish}{}\relax 
+\contentsline {section}{\numberline {1}Descripción de actividades}{2}{section.1}%
+\contentsline {section}{\numberline {2}Desarrollo de actividades según criterio de rúbrica}{2}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Identifica el algoritmo de hash utilizado al momento de registrarse en el sitio}{2}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Identifica el algoritmo de hash utilizado al momento de iniciar sesión}{7}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Genera el hash de la contraseña desde la consola del navegador}{9}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Intercepta el tráfico login con BurpSuite}{10}{subsection.2.4}%
+\contentsline {subsection}{\numberline {2.5}Realiza el intento de login}{12}{subsection.2.5}%
+\contentsline {subsection}{\numberline {2.6}Identifica las políticas de privacidad o seguridad}{15}{subsection.2.6}%
+\contentsline {subsection}{\numberline {2.7}Demuestra 4 conclusiones sobre la seguridad}{15}{subsection.2.7}%
