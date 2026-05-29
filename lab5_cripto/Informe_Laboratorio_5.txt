@@ -1,0 +1,288 @@
+Informe Laboratorio 5
+Sección x
+Alumno x
+e-mail: alumno.contacto@mail.udp.cl
+Junio de 2025
+
+1
+
+ÍNDICE
+
+ÍNDICE
+
+Índice
+Descripción de actividades
+
+3
+
+1. Desarrollo (Parte 1)
+1.1. Códigos de cada Dockerfile . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+1.1.1. C1 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+1.1.2. C2 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+1.1.3. C3 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+1.1.4. C4/S1 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+1.2. Creación de las credenciales para S1 . . . . . . . . . . . . . . . . . . . . . . .
+1.3. Tráfico generado por C1, detallando tamaño paquetes del flujo y el HASSH
+respectivo (detallado) . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+1.4. Tráfico generado por C2, detallando tamaño paquetes del flujo y el HASSH
+respectivo (detallado) . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+1.5. Tráfico generado por C3, detallando tamaño paquetes del flujo y el HASSH
+respectivo (detallado) . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+1.6. Tráfico generado por C4 (iface lo), detallando tamaño paquetes del flujo y el
+HASSH respectivo (detallado) . . . . . . . . . . . . . . . . . . . . . . . . . .
+1.7. Compara la versión de HASSH obtenida con la base de datos para validar si
+el cliente corresponde al mismo . . . . . . . . . . . . . . . . . . . . . . . . .
+1.8. Tipo de información contenida en cada uno de los paquetes generados en texto
+plano . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+1.8.1. C1 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+1.8.2. C2 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+1.8.3. C3 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+1.8.4. C4/S1 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+1.9. Diferencia entre C1 y C2 . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+1.10. Diferencia entre C2 y C3 . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+1.11. Diferencia entre C3 y C4 . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+6
+6
+6
+6
+6
+6
+6
+
+2. Desarrollo (Parte 2)
+2.1. Identificación del cliente SSH con versión “?” . . . . . . . . . . . . . . . . . .
+2.2. Replicación de tráfico al servidor (paso por paso) . . . . . . . . . . . . . . .
+
+7
+7
+7
+
+3. Desarrollo (Parte 3)
+3.1. Replicación del KEI con tamaño menor a 300 bytes (paso por paso) . . . . .
+
+7
+7
+
+4. Desarrollo (Parte 4)
+4.1. Explicación OpenSSH en general . . . . . . . . . . . . . . . . . . . . . . . .
+4.2. Capas de Seguridad en OpenSSH . . . . . . . . . . . . . . . . . . . . . . . .
+4.3. Identificación de que protocolos no se cumplen . . . . . . . . . . . . . . . . .
+
+7
+7
+7
+7
+
+2
+
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+
+ÍNDICE
+
+ÍNDICE
+
+Descripción de actividades
+Para este último laboratorio, se solicita trabajar con Docker y el protocolo SSH, a fin de
+poder entender el concepto de cripografı́a asimétrica y firmas digitales.
+Para lo anterior deberá:
+Crear 4 contenedores en Docker por medio de un DockerFile, donde cada uno tendrá el
+siguiente SO: Ubuntu 16.10, Ubuntu 18.10, Ubuntu 20.10 y Ubuntu 22.10 a los cuales
+se llamarán C1, C2, C3 y C4 respectivamente.
+El equipo con Ubuntu 22.10 también será utilizado como S1.
+Para cada uno de ellos, deberá instalar el cliente openSSH disponible en los repositorios
+de apt, y para el equipo S1 deberá también instalar el servidor openSSH.
+En S1 deberá crear el usuario “prueba”con contraseña “prueba”, para acceder a él
+desde los clientes por el protocolo SSH.
+En total serán 4 escenarios, donde cada uno corresponderá a los siguientes equipos:
+• C1 → S1
+• C2 → S1
+• C3 → S1
+• C4 → S1
+Pasos:
+1. Para cada uno de los 4 escenarios, deberá capturar el tráfico generado por cada conexión con el server. A partir de cada handshake, deberá analizar el patrón de tráfico
+generado por cada cliente y adicionalmente obtener el HASSH que lo identifique. De
+esta forma podrá obtener una huella digital para cada cliente a partir de su tráfico.
+Cada HASSH deberá compararlo con la base de datos HASSH disponible en el módulo de TLS, e identificar si el hash obtenido corresponde a la misma versión de su cliente.
+Indique el tamaño de los paquetes del flujo generados por el cliente y el contenido
+asociado a cada uno de ellos. Indique qué información distinta contiene el escenario siguiente (diff incremental). El objetivo de este paso es identificar claramente los cambios
+entre las distintas versiones de ssh.
+
+3
+
+ÍNDICE
+
+ÍNDICE
+
+2. Para poder identificar que el usuario efectivamente es el informante, éste utilizará una
+versión única de cliente. ¿Con qué cliente SSH se habrá generado el siguiente tráfico?
+
+Figura 1: Tráfico generado del informante
+Replique este tráfico generado en la imagen. Debe generar el tráfico con la misma
+versión resaltada en azul. Recuerde que toda la información generada es parte del sw,
+por lo tanto usted puede modificar toda la información.
+3. Para que el informante esté seguro de nuestra identidad, nos pide que el patrón del
+tráfico de nuestro server también sea modificado, hasta que el Key Exchange Init del
+server sea menor a 300 bytes. Indique qué pasos realizó para lograr esto.
+
+4
+
+ÍNDICE
+
+ÍNDICE
+
+Figura 2: Captura del Key Exchange
+4. Tomando en cuenta lo aprendido en este laboratorio, ası́ como en los anteriores, explique
+el protocolo OpenSSH y las diferentes capas de seguridad que son parte del protocolo
+para garantizar los principios de seguridad de la información, integridad, confidencialidad, disponibilidad, autenticidad y no repudio. Es importante que sea muy especı́fico
+en el objetivo del principio en el protocolo. En caso de considerar que alguno de los
+principios no se cumple, justifique su razonamiento. Es fundamental que su análisis se
+base en el tráfico SSH interceptado.
+
+5
+
+1 DESARROLLO (PARTE 1)
+
+1.
+
+Desarrollo (Parte 1)
+
+1.1.
+
+Códigos de cada Dockerfile
+
+1.1.1.
+
+C1
+
+1.1.2.
+
+C2
+
+1.1.3.
+
+C3
+
+1.1.4.
+
+C4/S1
+
+1.2.
+
+Creación de las credenciales para S1
+
+1.3.
+
+Tráfico generado por C1, detallando tamaño paquetes del flujo
+y el HASSH respectivo (detallado)
+
+1.4.
+
+Tráfico generado por C2, detallando tamaño paquetes del flujo
+y el HASSH respectivo (detallado)
+
+1.5.
+
+Tráfico generado por C3, detallando tamaño paquetes del flujo
+y el HASSH respectivo (detallado)
+
+1.6.
+
+Tráfico generado por C4 (iface lo), detallando tamaño paquetes del flujo y el HASSH respectivo (detallado)
+
+1.7.
+
+Compara la versión de HASSH obtenida con la base de datos
+para validar si el cliente corresponde al mismo
+
+1.8.
+
+Tipo de información contenida en cada uno de los paquetes
+generados en texto plano
+
+1.8.1.
+
+C1
+
+1.8.2.
+
+C2
+
+1.8.3.
+
+C3
+
+1.8.4.
+
+C4/S1
+
+1.9.
+
+Diferencia entre C1 y C2
+
+1.10.
+
+Diferencia entre C2 y C3
+
+1.11.
+
+Diferencia entre C3 y C4
+
+6
+
+4 DESARROLLO (PARTE 4)
+
+2.
+
+Desarrollo (Parte 2)
+
+2.1.
+
+Identificación del cliente SSH con versión “?”
+
+2.2.
+
+Replicación de tráfico al servidor (paso por paso)
+
+3.
+
+Desarrollo (Parte 3)
+
+3.1.
+
+Replicación del KEI con tamaño menor a 300 bytes (paso por
+paso)
+
+4.
+
+Desarrollo (Parte 4)
+
+4.1.
+
+Explicación OpenSSH en general
+
+4.2.
+
+Capas de Seguridad en OpenSSH
+
+4.3.
+
+Identificación de que protocolos no se cumplen
+
+Conclusiones y comentarios
+
+7
+
+

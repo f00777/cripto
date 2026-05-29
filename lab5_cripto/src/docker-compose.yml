@@ -1,0 +1,71 @@
+services:
+  s1:
+    build:
+      context: ./C4
+      network: host
+    image: c4
+    container_name: s1
+    networks:
+      ssh_net:
+        ipv4_address: 172.21.0.10
+
+  c1:
+    build:
+      context: ./C1
+      network: host
+    image: c1
+    container_name: c1
+    tty: true
+    stdin_open: true
+    depends_on:
+      - s1
+    networks:
+      ssh_net:
+        ipv4_address: 172.21.0.11
+
+  c2:
+    build:
+      context: ./C2
+      network: host
+    image: c2
+    container_name: c2
+    tty: true
+    stdin_open: true
+    depends_on:
+      - s1
+    networks:
+      ssh_net:
+        ipv4_address: 172.21.0.12
+
+  c3:
+    build:
+      context: ./C3
+      network: host
+    image: c3
+    container_name: c3
+    tty: true
+    stdin_open: true
+    depends_on:
+      - s1
+    networks:
+      ssh_net:
+        ipv4_address: 172.21.0.13
+
+  c4:
+    build:
+      context: ./C4
+      network: host
+    image: c4
+    container_name: c4_client
+    depends_on:
+      - s1
+    networks:
+      ssh_net:
+        ipv4_address: 172.21.0.14
+
+networks:
+  ssh_net:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.21.0.0/24
