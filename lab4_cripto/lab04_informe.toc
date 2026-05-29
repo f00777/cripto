@@ -1,0 +1,9 @@
+\babel@toc {spanish}{}\relax 
+\contentsline {section}{\numberline {1}Descripción de actividades}{2}{section.1}%
+\contentsline {section}{\numberline {2}Desarrollo de actividades según criterio de rúbrica}{3}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Investiga y documenta los tamaños de clave e IV}{3}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Solicita datos de entrada desde la terminal}{5}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Valida y ajusta la clave según el algoritmo}{6}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Implementa el cifrado y descifrado en modo CBC}{7}{subsection.2.4}%
+\contentsline {subsection}{\numberline {2.5}Compara los resultados con un servicio de cifrado online}{9}{subsection.2.5}%
+\contentsline {subsection}{\numberline {2.6}Describe la aplicabilidad del cifrado simétrico en la vida real}{11}{subsection.2.6}%
