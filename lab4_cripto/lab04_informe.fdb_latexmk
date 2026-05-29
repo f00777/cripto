@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1780049237.67095 "lab04_informe.tex" "lab04_informe.pdf" "lab04_informe" 1780049239.55477 0
+["pdflatex"] 1780049409.59654 "lab04_informe.tex" "lab04_informe.pdf" "lab04_informe" 1780049411.37404 0
   "/etc/texmf/web2c/texmf.cnf" 1775070286.30325 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/home/pepecortishell/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1200.600pk" 1779345551.35417 31928 3e2d1a0c117c5ba4007de1f17e157aa2 ""
   "/home/pepecortishell/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1440.600pk" 1779345553.39716 40112 7c8b413b0a380447542db0b65e51347c ""
@@ -145,10 +145,10 @@
   "img/entrada_datos.png" 1780047342.54981 22058 0eb8a8c3a7fc3dce8a499f6f96b82bd0 ""
   "img/online_config.png" 1780048622.44946 20527 f63d6f1f7e117a7aaff862979f0b2646 ""
   "img/online_resultado.png" 1780048649.56442 10439 4b5cf0120d4b552018c5d3f35d859d4f ""
-  "lab04_informe.aux" 1780049239.34752 5010 3808d58f380cfb5618a010915836611a "pdflatex"
-  "lab04_informe.out" 1780049239.35152 2480 6937d154805970d74d58fd53d2fd98e7 "pdflatex"
-  "lab04_informe.tex" 1780049222.52955 17113 68d49d080044cd8bb9887c958ab26596 ""
-  "lab04_informe.toc" 1780049239.35252 920 b0fba452ed26fd3997d75a3936cbecfb "pdflatex"
+  "lab04_informe.aux" 1780049411.18526 5010 3808d58f380cfb5618a010915836611a "pdflatex"
+  "lab04_informe.out" 1780049411.18926 2480 6937d154805970d74d58fd53d2fd98e7 "pdflatex"
+  "lab04_informe.tex" 1780049397.12928 17133 f8218d9e7b673dd67daee463a51abb57 ""
+  "lab04_informe.toc" 1780049411.18926 920 b0fba452ed26fd3997d75a3936cbecfb "pdflatex"
   (generated)
   "lab04_informe.aux"
   "lab04_informe.log"
