@@ -5,6 +5,10 @@ services:
       network: host
     image: c4
     container_name: s1
+    command: >
+      bash -c "mkdir -p /usr/local/etc &&
+               cp /etc/ssh/sshd_config /usr/local/etc/sshd_config &&
+               /usr/sbin/sshd -D"
     networks:
       ssh_net:
         ipv4_address: 172.21.0.10

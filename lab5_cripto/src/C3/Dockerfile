@@ -8,6 +8,7 @@ RUN apt-get update && apt-get install -y \
     openssh-client \
     iputils-ping \
     tcpdump \
-    && rm -rf /var/lib/apt/lists/*
+    wget && rm -rf /var/lib/apt/lists/*
 
 CMD ["bash"]
+

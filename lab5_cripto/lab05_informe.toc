@@ -1,0 +1,33 @@
+\babel@toc {spanish}{}\relax 
+\contentsline {section}{Descripción de actividades}{4}{section*.2}%
+\contentsline {section}{\numberline {1}Desarrollo (Parte 1)}{6}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Códigos de cada Dockerfile}{6}{subsection.1.1}%
+\contentsline {subsubsection}{\numberline {1.1.1}C1}{6}{subsubsection.1.1.1}%
+\contentsline {subsubsection}{\numberline {1.1.2}C2}{7}{subsubsection.1.1.2}%
+\contentsline {subsubsection}{\numberline {1.1.3}C3}{7}{subsubsection.1.1.3}%
+\contentsline {subsubsection}{\numberline {1.1.4}C4/S1}{8}{subsubsection.1.1.4}%
+\contentsline {subsubsection}{\numberline {1.1.5}Docker Compose}{8}{subsubsection.1.1.5}%
+\contentsline {subsubsection}{\numberline {1.1.6}Comandos para levantar el entorno}{10}{subsubsection.1.1.6}%
+\contentsline {subsection}{\numberline {1.2}Creación de las credenciales para S1}{10}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.3}Tráfico generado por C1, detallando tamaño paquetes del flujo y el HASSH respectivo (detallado)}{10}{subsection.1.3}%
+\contentsline {subsection}{\numberline {1.4}Tráfico generado por C2, detallando tamaño paquetes del flujo y el HASSH respectivo (detallado)}{11}{subsection.1.4}%
+\contentsline {subsection}{\numberline {1.5}Tráfico generado por C3, detallando tamaño paquetes del flujo y el HASSH respectivo (detallado)}{12}{subsection.1.5}%
+\contentsline {subsection}{\numberline {1.6}Tráfico generado por C4 (iface lo), detallando tamaño paquetes del flujo y el HASSH respectivo (detallado)}{13}{subsection.1.6}%
+\contentsline {subsection}{\numberline {1.7}Compara la versión de HASSH obtenida con la base de datos para validar si el cliente corresponde al mismo}{13}{subsection.1.7}%
+\contentsline {subsection}{\numberline {1.8}Tipo de información contenida en cada uno de los paquetes generados en texto plano}{13}{subsection.1.8}%
+\contentsline {subsubsection}{\numberline {1.8.1}C1}{14}{subsubsection.1.8.1}%
+\contentsline {subsubsection}{\numberline {1.8.2}C2}{14}{subsubsection.1.8.2}%
+\contentsline {subsubsection}{\numberline {1.8.3}C3}{14}{subsubsection.1.8.3}%
+\contentsline {subsubsection}{\numberline {1.8.4}C4/S1}{14}{subsubsection.1.8.4}%
+\contentsline {subsection}{\numberline {1.9}Diferencia entre C1 y C2}{14}{subsection.1.9}%
+\contentsline {subsection}{\numberline {1.10}Diferencia entre C2 y C3}{15}{subsection.1.10}%
+\contentsline {subsection}{\numberline {1.11}Diferencia entre C3 y C4}{15}{subsection.1.11}%
+\contentsline {section}{\numberline {2}Desarrollo (Parte 2)}{16}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Identificación del cliente SSH con versión \textquotedblleft ?\textquotedblright }{16}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Replicación de tráfico al servidor (paso por paso)}{16}{subsection.2.2}%
+\contentsline {section}{\numberline {3}Desarrollo (Parte 3)}{18}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Replicación del KEI con tamaño menor a 300 bytes (paso por paso)}{18}{subsection.3.1}%
+\contentsline {section}{\numberline {4}Desarrollo (Parte 4)}{20}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Explicación OpenSSH en general}{20}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Capas de Seguridad en OpenSSH}{21}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Identificación de que protocolos no se cumplen}{21}{subsection.4.3}%
